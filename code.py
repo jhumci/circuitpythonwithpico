@@ -1,30 +1,16 @@
-# Wenn Bus keine Geräte findet, Widerstand prüfen!
-import time
-import board
-import busio
-import adafruit_adxl34x
-import os
-import lib.mywifi as mywifi
-import lib.mymqtt as mymqtt
+# Externe Bibliotheken laden
+import time     # Bibliothek Zeit-Funktionen
+import digitalio# Bibliothek zur Steuerung von GPIOs
+import board    # Bibliothek welches die Adressen der Pins kennt: z.B. board.LED
 
-output_feed_x = "iot/{}/acceleration/x".format(os.getenv('MY_DEVICE_NAME'))
-output_feed_y = "iot/{}/acceleration/y".format(os.getenv('MY_DEVICE_NAME'))
-output_feed_z = "iot/{}/acceleration/z".format(os.getenv('MY_DEVICE_NAME'))
+# Ein- und Ausgänge definieren
+led = digitalio.DigitalInOut(board.LED) # Die Variable LED wird mit dem GPIO der LED auf dem Board verbunden
+led.direction = digitalio.Direction.OUTPUT # Legt Richtung des PIN fest -> Output
 
-mywifi.connect_wifi()
-mqtt_client = mymqtt.connect_mqtt()
-
-i2c = busio.I2C(scl=board.GP15, sda=board.GP14)
-
-accelerometer = adafruit_adxl34x.ADXL345(i2c)
-
-
+# Endlosschleife
 while True:
-    # Poll the message queue
-    #mqtt_client.loop()
-
-    # Send a new message
-    mqtt_client.publish(output_feed_x, accelerometer.acceleration[0])
-    mqtt_client.publish(output_feed_y, accelerometer.acceleration[1])
-    mqtt_client.publish(output_feed_z, accelerometer.acceleration[2])
-    time.sleep(1)
+        led.value = True
+        time.sleep(0.2)
+        led.value = False
+        time.sleep(3)
+        print("Sleep!")
