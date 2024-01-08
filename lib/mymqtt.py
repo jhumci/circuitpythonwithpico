@@ -17,10 +17,10 @@ def connect_mqtt():
     def connected(client, userdata, flags, rc):
         # This function will be called when the client is connected
         # successfully to the broker.
-        print("Connected to {} Listening for topic changes on %s {}".format(os.getenv('MQTT_BROKER'), onoff_feed))
+        #print("Connected to {} Listening for topic changes on %s {}".format(os.getenv('MQTT_BROKER'), onoff_feed))
         # Subscribe to all changes on the onoff_feed.
-        client.subscribe(onoff_feed)
-
+        #client.subscribe(onoff_feed)
+        pass
 
     def disconnected(client, userdata, rc):
         # This method is called when the client is disconnected

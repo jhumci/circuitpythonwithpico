@@ -4,8 +4,8 @@ import board
 import busio
 import adafruit_adxl34x
 import os
-import mywifi
-import mymqtt
+import lib.mywifi as mywifi
+import lib.mymqtt as mymqtt
 
 output_feed_x = "iot/{}/acceleration/x".format(os.getenv('MY_DEVICE_NAME'))
 output_feed_y = "iot/{}/acceleration/y".format(os.getenv('MY_DEVICE_NAME'))

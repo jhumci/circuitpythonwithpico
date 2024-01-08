@@ -9,3 +9,4 @@
 - [Pin Belegung Pico](https://www.elektronik-kompendium.de/sites/raspberry-pi/2604131.htm)
 - [Datenblatt adxl345](https://cdn-learn.adafruit.com/downloads/pdf/adxl345-digital-accelerometer.pdf)
 
+
