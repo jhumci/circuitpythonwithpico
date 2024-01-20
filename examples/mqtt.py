@@ -55,7 +55,7 @@ mqtt_client.on_message = message
 # Connect the client to the MQTT broker.
 print("Connecting to {}...".format(os.getenv('MQTT_BROKER')))
 mqtt_client.connect()
-
+print("Connected!"))
 
 test_val = 0
 while True:
